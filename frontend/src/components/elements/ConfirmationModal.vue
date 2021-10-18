@@ -23,7 +23,7 @@ export default {
         message: {
             type: String,
             required: false,
-            default: 'Do you want to deleted this item?'
+            default: 'Do you want to delete this item?'
         }
     },
 
