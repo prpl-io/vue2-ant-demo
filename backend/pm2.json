@@ -1,7 +1,7 @@
 {
     "apps": [
         {
-            "name": "vue2DemoAPI",
+            "name": "Vue2DemoAPI",
             "script": "./src/bin/server.js",
             "watch": false,
             "instances": "2",
@@ -16,7 +16,7 @@
             "log_date_format": "YYYY-MM-DD HH:mm"
         },
         {
-            "name": "vue2DemoQUEUES",
+            "name": "Vue2DemoQUEUES",
             "script": "./src/bin/queues.js",
             "watch": false,
             "env_production": {
