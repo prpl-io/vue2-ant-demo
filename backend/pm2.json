@@ -1,0 +1,32 @@
+{
+    "apps": [
+        {
+            "name": "vue2DemoAPI",
+            "script": "./src/bin/server.js",
+            "watch": false,
+            "instances": "2",
+            "exec_mode": "cluster",
+            "env_production": {
+                "NODE_ENV": "production"
+            },
+            "exp_backoff_restart_delay": 250,
+            "max_restarts": 10,
+            "min_uptime": 5000,
+            "max_memory_restart": "350M",
+            "log_date_format": "YYYY-MM-DD HH:mm"
+        },
+        {
+            "name": "vue2DemoQUEUES",
+            "script": "./src/bin/queues.js",
+            "watch": false,
+            "env_production": {
+                "NODE_ENV": "production"
+            },
+            "exp_backoff_restart_delay": 5000,
+            "max_restarts": 5,
+            "min_uptime": 30000,
+            "max_memory_restart": "350M",
+            "log_date_format": "YYYY-MM-DD HH:mm"
+        }
+    ]
+}

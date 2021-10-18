@@ -1,0 +1,52 @@
+{
+    "name": "client",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "lint": "vue-cli-service lint"
+    },
+    "dependencies": {
+        "@tinymce/tinymce-vue": "^3.2.8",
+        "ant-design-vue": "^1.7.8",
+        "axios": "^0.21.1",
+        "core-js": "^3.6.5",
+        "cross-env": "^7.0.2",
+        "dayjs": "^1.10.4",
+        "eslint-plugin-vue": "^7.2.0",
+        "http-status-codes": "^2.1.4",
+        "jquery": "^3.5.1",
+        "json2csv": "^5.0.6",
+        "lodash": "^4.17.15",
+        "material-design-icons": "^3.0.1",
+        "nprogress": "^0.2.0",
+        "popper": "^1.0.1",
+        "sass": "1.32.12",
+        "sass-loader": "^8.0.2",
+        "slugify": "^1.5.3",
+        "vue": "^2.6.11",
+        "vue-advanced-cropper": "^0.17.6",
+        "vue-meta": "^2.4.0",
+        "vue-router": "^3.3.4",
+        "vue-select": "^3.11.2",
+        "vue2-dropzone": "^3.6.0",
+        "vue2-perfect-scrollbar": "^1.5.0",
+        "vuedraggable": "^2.23.2",
+        "vuelidate": "^0.7.6",
+        "vuex": "^3.4.0"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "^4.4.0",
+        "@vue/cli-plugin-eslint": "^4.4.0",
+        "@vue/cli-service": "^4.4.0",
+        "babel-eslint": "^10.1.0",
+        "eslint": "^6.7.2",
+        "vue-template-compiler": "^2.6.11"
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not dead"
+    ]
+}

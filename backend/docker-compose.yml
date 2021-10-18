@@ -1,0 +1,77 @@
+version: '3'
+
+volumes:
+    mysql.data:
+    redis_session.data:
+    redis_cache.data:
+    rabbitmq.data:
+
+services:
+    mysql:
+        image: mysql:5.7
+        container_name: ${COMPOSE_PROJECT_NAME}.mysql.docker
+        restart: unless-stopped
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: ${DATABASE_NAME}
+            MYSQL_USER: ${DATABASE_USERNAME}
+            MYSQL_PASSWORD: ${DATABASE_PASSWORD}
+            MYSQL_ALLOW_EMPTY_PASSWORD: 'no'
+        volumes:
+            - mysql.data:/var/lib/mysql
+        ports:
+            - 127.0.0.1:${DATABASE_PORT}:3306
+        networks:
+            - global
+
+    redis_session:
+        image: redis:latest
+        container_name: ${COMPOSE_PROJECT_NAME}.redis_session.docker
+        restart: unless-stopped
+        volumes:
+            - redis_session.data:/data
+        command: redis-server --requirepass ${SESSION_REDIS_PASS}
+        ports:
+            - 127.0.0.1:${SESSION_REDIS_PORT}:6379
+        networks:
+            - global
+
+    redis_cache:
+        image: redis:latest
+        container_name: ${COMPOSE_PROJECT_NAME}.redis_cache.docker
+        restart: unless-stopped
+        volumes:
+            - redis_cache.data:/data
+        command: redis-server --requirepass ${CACHE_REDIS_PASS}
+        ports:
+            - 127.0.0.1:${CACHE_REDIS_PORT}:6379
+        networks:
+            - global
+
+    mailcatcher:
+        image: schickling/mailcatcher
+        container_name: ${COMPOSE_PROJECT_NAME}.mailcatcher.docker
+        restart: unless-stopped
+        ports:
+            - 127.0.0.1:${EMAIL_PORT}:1025
+            - 127.0.0.1:1080:1080
+        networks:
+            - global
+
+    rabbitmq:
+        image: rabbitmq:3.8-management
+        container_name: ${COMPOSE_PROJECT_NAME}.rabbitmq.docker
+        restart: unless-stopped
+        environment:
+            RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+            RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASS}
+            RABBITMQ_VM_MEMORY_HIGH_WATERMARK: 0.8
+        ports:
+            - 127.0.0.1:${RABBITMQ_PORT}:5672
+            - 127.0.0.1:${RABBITMQ_MANAGEMENT_PORT}:15672
+        networks:
+            - global
+
+networks:
+    global:
+        external: true

@@ -1,0 +1,64 @@
+body,
+#app,
+.wrapper {
+    height: 100%;
+    padding-right: 0px !important; // bvmodal adds padding-right to body
+}
+
+.content-wrapper {
+    border: 1px solid rgb(235, 237, 240);
+    margin: 0 16px 24px 16px;
+    background-color: #fff;
+    padding: 24px;
+    overflow: initial;
+}
+
+.error-wrapper {
+    border: 1px solid rgb(235, 237, 240);
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+}
+
+.auth-background {
+    background: #1890ff;
+    background: -webkit-linear-gradient(to top, #fff, #1890ff);
+    background: linear-gradient(to top, #fff, #1890ff);
+    height: 100%;
+    width: 100%;
+
+    .auth-layout {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        min-height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        a {
+            color: #1890ff;
+
+            &.btn-info {
+                color: white;
+            }
+        }
+    }
+
+    .is-error {
+        padding: 0;
+        background-color: #f0f2f5;
+        width: 100%;
+    }
+}
+
+.loader-layout {
+    background: #1890ff;
+    background: -webkit-linear-gradient(to top, #fff, #1890ff);
+    background: linear-gradient(to top, #fff, #1890ff);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
