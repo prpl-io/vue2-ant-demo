@@ -27,7 +27,6 @@
         "slugify": "^1.5.3",
         "vue": "^2.6.11",
         "vue-advanced-cropper": "^0.17.6",
-        "vue-meta": "^2.4.0",
         "vue-router": "^3.3.4",
         "vue-select": "^3.11.2",
         "vue2-dropzone": "^3.6.0",

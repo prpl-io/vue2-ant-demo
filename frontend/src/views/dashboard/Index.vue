@@ -10,11 +10,8 @@
 
 <script>
 import { mapGetters } from 'vuex';
-export default {
-    page: {
-        title: 'Dashboard'
-    },
 
+export default {
     data() {
         return {
             title: 'Dashboard',

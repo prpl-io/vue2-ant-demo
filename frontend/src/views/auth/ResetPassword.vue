@@ -60,10 +60,6 @@ import { StatusCodes as HTTP } from 'http-status-codes';
 import { required, sameAs, minLength } from 'vuelidate/lib/validators';
 
 export default {
-    page: {
-        title: 'Set Password'
-    },
-
     validations: {
         password: {
             required,

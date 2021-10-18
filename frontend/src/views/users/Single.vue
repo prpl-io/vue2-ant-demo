@@ -39,10 +39,6 @@ import { required, email, minLength } from 'vuelidate/lib/validators';
 import AddEditForm from '@/components/users/AddEditForm';
 
 export default {
-    page: {
-        title: 'Manage User'
-    },
-
     validations: {
         user: {
             email: {

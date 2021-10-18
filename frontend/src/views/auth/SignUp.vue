@@ -87,10 +87,6 @@ import { StatusCodes as HTTP } from 'http-status-codes';
 import { required, email, minLength } from 'vuelidate/lib/validators';
 
 export default {
-    page: {
-        title: 'Sign Up'
-    },
-
     data() {
         return {
             firstName: '',

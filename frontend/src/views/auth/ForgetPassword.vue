@@ -55,10 +55,6 @@ import { required, email } from 'vuelidate/lib/validators';
 import { mapActions } from 'vuex';
 
 export default {
-    page: {
-        title: 'Forget Password'
-    },
-
     validations: {
         email: { required, email }
     },
