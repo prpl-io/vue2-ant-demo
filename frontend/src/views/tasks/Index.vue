@@ -61,10 +61,6 @@ import { mapActions } from 'vuex';
 import { StatusCodes as HTTP } from 'http-status-codes';
 
 export default {
-    page: {
-        title: 'Tasks'
-    },
-
     data() {
         return {
             title: 'Tasks',

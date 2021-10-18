@@ -47,10 +47,6 @@ import { mapActions } from 'vuex';
 import { StatusCodes as HTTP } from 'http-status-codes';
 
 export default {
-    page: {
-        title: 'Users'
-    },
-
     data() {
         return {
             title: 'Users',

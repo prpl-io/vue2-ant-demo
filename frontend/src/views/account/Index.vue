@@ -22,10 +22,6 @@ import Profile from '@/components/account/Profile';
 import Password from '@/components/account/Password';
 
 export default {
-    page: {
-        title: 'My account'
-    },
-
     components: {
         Profile,
         Password,

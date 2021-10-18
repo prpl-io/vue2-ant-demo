@@ -30,7 +30,11 @@
                 </a-form-item>
 
                 <a-form-item>
-                    <a-button type="primary" html-type="submit">
+                    <a-button
+                        type="primary"
+                        html-type="submit"
+                        :style="{ width: '100%' }"
+                    >
                         Send Reset Password Link
                     </a-button>
                 </a-form-item>
@@ -51,10 +55,6 @@ import { required, email } from 'vuelidate/lib/validators';
 import { mapActions } from 'vuex';
 
 export default {
-    page: {
-        title: 'Forget Password'
-    },
-
     validations: {
         email: { required, email }
     },

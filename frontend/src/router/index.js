@@ -1,15 +1,11 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import VueMeta from 'vue-meta';
 import NProgress from 'nprogress/nprogress';
 import store from '@/state/store';
 import routes from './routes';
 import { publicPath as base } from '@/config';
 
 Vue.use(VueRouter);
-Vue.use(VueMeta, {
-    keyName: 'page'
-});
 
 const router = new VueRouter({
     routes,
@@ -127,8 +123,13 @@ router.beforeResolve(async (routeTo, routeFrom, next) => {
     next();
 });
 
-router.afterEach(() => {
+const DEFAULT_TITLE = 'Vue 2 Demo';
+
+router.afterEach(to => {
     NProgress.done();
+
+    document.title =
+        `${to?.meta?.title || ''} | ${DEFAULT_TITLE}` || DEFAULT_TITLE;
 });
 
 export default router;

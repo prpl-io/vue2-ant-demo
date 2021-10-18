@@ -11,7 +11,7 @@
                     :server-errors="serverErrors"
                 />
 
-                <a-space>
+                <a-space direction="vertical">
                     <a-button type="primary" @click="submitHandler">
                         <a-icon type="save" />
                         Save
@@ -47,10 +47,6 @@ import { required } from 'vuelidate/lib/validators';
 import AddEditForm from '@/components/tasks/AddEditForm';
 
 export default {
-    page: {
-        title: 'Manage Task'
-    },
-
     validations: {
         task: {
             title: {

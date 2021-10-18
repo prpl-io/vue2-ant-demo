@@ -1,3 +1,4 @@
+import startCase from 'lodash/startCase';
 import store from '@/state/store';
 
 const routes = [
@@ -17,11 +18,14 @@ const crudRoutes = routes.flatMap(route => {
     const property = route.name || route;
     const adminOnly = !!route?.adminOnly;
 
+    const title = startCase(property);
+
     const indexRoute = {
         path: `/${property}`,
         name: property,
         component: () => import(`@/views/${property}/Index`),
         meta: {
+            title,
             authRequired: true,
             adminOnly
         }
@@ -31,6 +35,7 @@ const crudRoutes = routes.flatMap(route => {
         name: `${property}Add`,
         component: () => import(`@/views/${property}/Single`),
         meta: {
+            title: `${title} Management`,
             authRequired: true,
             adminOnly
         }
@@ -40,6 +45,7 @@ const crudRoutes = routes.flatMap(route => {
         name: `${property}Edit`,
         component: () => import(`@/views/${property}/Single`),
         meta: {
+            title: `${title} Management`,
             authRequired: true,
             adminOnly
         }
@@ -75,6 +81,7 @@ export default [
         name: 'login',
         component: () => import('@/views/auth/Login'),
         meta: {
+            title: 'Login',
             guestOnly: true,
             layout: 'auth'
         }
@@ -84,6 +91,7 @@ export default [
         name: 'sign-up',
         component: () => import('@/views/auth/SignUp'),
         meta: {
+            title: 'Sign up',
             guestOnly: true,
             layout: 'auth'
         }
@@ -93,6 +101,7 @@ export default [
         name: 'setPassword',
         component: () => import('@/views/auth/ResetPassword'),
         meta: {
+            title: 'Set password',
             guestOnly: true,
             layout: 'auth'
         }
@@ -102,6 +111,7 @@ export default [
         name: 'resetPassword',
         component: () => import('@/views/auth/ResetPassword'),
         meta: {
+            title: 'Reset password',
             guestOnly: true,
             layout: 'auth'
         }
@@ -111,6 +121,7 @@ export default [
         name: 'forgetPassword',
         component: () => import('@/views/auth/ForgetPassword'),
         meta: {
+            title: 'Forget password',
             guestOnly: true,
             layout: 'auth'
         }
@@ -120,6 +131,7 @@ export default [
         name: 'logout',
         component: () => import('@/views/logout/Index'),
         meta: {
+            title: 'Logout',
             layout: 'loader',
             authRequired: true
         }
@@ -130,6 +142,7 @@ export default [
         name: 'dashboard',
         component: () => import('@/views/dashboard/Index'),
         meta: {
+            title: 'Dashboard',
             authRequired: true
         }
     },
@@ -139,6 +152,7 @@ export default [
         name: 'notFoundPage',
         component: () => import('@/layouts/error'),
         meta: {
+            title: 'Not found page',
             layout: (() =>
                 store.getters['auth/loggedIn'] ? 'default' : 'auth')()
         }

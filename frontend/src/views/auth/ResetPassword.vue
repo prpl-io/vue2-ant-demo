@@ -40,7 +40,7 @@
                         placeholder="Password confirmation"
                     />
                 </a-form-item>
-                <a-form-item :wrapper-col="{ span: 12, offset: 6 }">
+                <a-form-item>
                     <a-button
                         type="primary"
                         html-type="submit"
@@ -60,10 +60,6 @@ import { StatusCodes as HTTP } from 'http-status-codes';
 import { required, sameAs, minLength } from 'vuelidate/lib/validators';
 
 export default {
-    page: {
-        title: 'Set Password'
-    },
-
     validations: {
         password: {
             required,
