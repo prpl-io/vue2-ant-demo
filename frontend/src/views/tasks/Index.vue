@@ -45,7 +45,7 @@
                         </span>
                         <a
                             :style="{ color: '#f5222d' }"
-                            @click="deleteTask(record.id)"
+                            @click="confirmDelete(record.id)"
                         >
                             Delete
                         </a>
@@ -53,14 +53,25 @@
                 </template>
             </a-table>
         </a-layout-content>
+
+        <confirmation-modal
+            v-if="idToDelete"
+            @confirm="deleteTask"
+            @cancel="modalCanceled"
+        />
     </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex';
 import { StatusCodes as HTTP } from 'http-status-codes';
+import ConfirmationModal from '@/components/elements/ConfirmationModal';
 
 export default {
+    components: {
+        ConfirmationModal
+    },
+
     data() {
         return {
             title: 'Tasks',
@@ -107,7 +118,8 @@ export default {
                 pageSize: 10,
                 pageSizeOptions: ['10', '20', '50', '100'],
                 showSizeChanger: true
-            }
+            },
+            idToDelete: null
         };
     },
 
@@ -172,15 +184,23 @@ export default {
             }
         },
 
-        async deleteTask(id) {
-            try {
-                await this.delete(id);
+        confirmDelete(id) {
+            this.idToDelete = id;
+        },
 
-                this.tasks = this.tasks.filter(item => item.id !== id);
+        async deleteTask() {
+            try {
+                await this.delete(this.idToDelete);
+
+                this.tasks = this.tasks.filter(
+                    item => item.id !== this.idToDelete
+                );
                 this.pagination = {
                     ...this.pagination,
                     total: this.pagination.total--
                 };
+
+                this.idToDelete = null;
 
                 this.$toaster('Task has been deleted.');
             } catch (error) {
@@ -200,6 +220,10 @@ export default {
 
                 this.$toasterError();
             }
+        },
+
+        modalCanceled() {
+            this.idToDelete = null;
         }
     }
 };
