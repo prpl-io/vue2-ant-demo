@@ -1,52 +1,36 @@
 <template>
-    <b-modal :id="id" title="Are you sure?" centered no-close-on-backdrop>
-        {{ title }}
-        <template #modal-footer>
-            <div class="col-12 d-flex justify-content-between">
-                <button
-                    type="button"
-                    class="btn btn-danger waves-effect waves-light mr-2"
-                    @click="disagree"
-                >
-                    Disagree
-                </button>
-                <button
-                    type="submit"
-                    class="btn btn-success waves-effect waves-light"
-                    @click="agree"
-                >
-                    Agree
-                </button>
-            </div>
-        </template>
-    </b-modal>
+    <a-modal
+        v-model="visible"
+        :title="title"
+        ok-text="Confirm"
+        @ok="$emit('confirm')"
+        @cancel="$emit('cancel')"
+    >
+        <p>
+            {{ message }}
+        </p>
+    </a-modal>
 </template>
 
 <script>
 export default {
     props: {
-        id: {
-            type: String,
-            required: false,
-            default: 'confirm-modal'
-        },
         title: {
             type: String,
             required: false,
             default: 'Are you sure?'
+        },
+        message: {
+            type: String,
+            required: false,
+            default: 'Do you want to deleted this item?'
         }
     },
 
-    methods: {
-        disagree() {
-            this.$emit('disagree');
-            this.$bvModal.hide(this.id);
-        },
-
-        agree() {
-            this.$emit('agree');
-            this.$bvModal.hide(this.id);
-        }
+    data() {
+        return {
+            visible: true
+        };
     }
 };
 </script>
