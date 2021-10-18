@@ -35,14 +35,6 @@ body,
         justify-content: center;
         align-items: center;
         flex-direction: column;
-
-        a {
-            color: #1890ff;
-
-            &.btn-info {
-                color: white;
-            }
-        }
     }
 
     .is-error {
