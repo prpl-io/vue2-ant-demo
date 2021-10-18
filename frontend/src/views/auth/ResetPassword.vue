@@ -40,7 +40,7 @@
                         placeholder="Password confirmation"
                     />
                 </a-form-item>
-                <a-form-item :wrapper-col="{ span: 12, offset: 6 }">
+                <a-form-item>
                     <a-button
                         type="primary"
                         html-type="submit"

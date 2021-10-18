@@ -35,17 +35,15 @@
                 />
             </a-form-item>
 
-            <div :style="{ paddingBottom: '5px' }">
-                <a-alert
-                    v-if="isAuthError"
-                    message="Wrong credentials!"
-                    type="error"
-                    show-icon
-                    closable
-                />
-            </div>
+            <a-alert
+                v-if="isAuthError"
+                message="Wrong credentials!"
+                type="error"
+                show-icon
+                :style="{ marginBottom: '10px' }"
+            />
 
-            <a-form-item :wrapper-col="{ span: 12, offset: 6 }">
+            <a-form-item :wrapper-col="{ span: 24 }">
                 <a-button
                     type="primary"
                     html-type="submit"

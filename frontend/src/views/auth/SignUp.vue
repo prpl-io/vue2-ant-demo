@@ -60,11 +60,11 @@
                     />
                 </a-form-item>
 
-                <a-form-item :wrapper-col="{ span: 12, offset: 6 }">
+                <a-form-item :wrapper-col="{ span: 24 }">
                     <a-button
                         type="primary"
                         html-type="submit"
-                        style="width: 100%"
+                        :style="{ width: '100%' }"
                     >
                         Sign Up
                     </a-button>
